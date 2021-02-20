@@ -5,7 +5,6 @@ fn main() {
 
     let s3 = takes_and_gives_back(s2); // s2 被移动进函数 takes_and_gives_back 中，
                                        // 而这个函数的返回值又被移动到了变量 s3 上
-    let s4 = no_return_no_soul();
 } // s3 在这里离开作用域并被销毁。由于 s2 已经移动（move）了
   // 所以它不会在离开作用域时发生任何事情。s1 最后离开作用域并被销毁。
 
@@ -19,9 +18,4 @@ fn gives_ownership() -> String {
 fn takes_and_gives_back(a_string: String) -> String {
     // a_string 进入作用域
     a_string // a_string 作为返回值移动至调用函数
-}
-
-fn no_return_no_soul() -> String {
-    let some_string = String::from("hello");
-    some_string
 }
